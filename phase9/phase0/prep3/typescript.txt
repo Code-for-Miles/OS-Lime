@@ -1,190 +1,0 @@
-Script started on Fri 07 Sep 2018 11:57:55 AM PDT
-[4mspedeBox[24m:[1m~/prep3[0m> f[Kflash MyOS.dli
-unable to open config file, using defaults....
-
->>>>>Welcome to the Flames Shell (FlaSh)  $Revision: 1.3 $ (SC/BJW)<<<<<<
-Type ? for help
-
-FLASH % d
-File type is 'ELF'
-Total blocks to download:  0x6b  (128 bytes each)
-
-?Now have attention of monitor...No of Blocks Downloaded : 0x2 No of Blocks Downloaded : 0x3 No of Blocks Downloaded : 0x4 No of Blocks Downloaded : 0x5 No of Blocks Downloaded : 0x6 No of Blocks Downloaded : 0x7 No of Blocks Downloaded : 0x8 No of Blocks Downloaded : 0x9 No of Blocks Downloaded : 0xa No of Blocks Downloaded : 0xb No of Blocks Downloaded : 0xc No of Blocks Downloaded : 0xd No of Blocks Downloaded : 0xe No of Blocks Downloaded : 0xf No of Blocks Downloaded : 0x10 No of Blocks Downloaded : 0x11 No of Blocks Downloaded : 0x12 No of Blocks Downloaded : 0x13 No of Blocks Downloaded : 0x14 No of Blocks Downloaded : 0x15 No of Blocks Downloaded : 0x16 No of Blocks Downloaded : 0x17 No of Blocks Downloaded : 0x18 No of Blocks Downloaded : 0x19 No of Blocks Downloaded : 0x1a No of Blocks Downloaded : 0x1b No of Blocks Downloaded : 0x1c No of Blocks Downloaded : 0x1d No of Blocks Downloaded : 0x1e No of Blocks Downloaded : 0x1f No of Blocks Downloaded : 0x20 No of Blocks Downloaded : 0x21 No of Blocks Downloaded : 0x22 No of Blocks Downloaded : 0x23 No of Blocks Downloaded : 0x24 No of Blocks Downloaded : 0x25 No of Blocks Downloaded : 0x26 No of Blocks Downloaded : 0x27 No of Blocks Downloaded : 0x28 No of Blocks Downloaded : 0x29 No of Blocks Downloaded : 0x2a No of Blocks Downloaded : 0x2b No of Blocks Downloaded : 0x2c No of Blocks Downloaded : 0x2d No of Blocks Downloaded : 0x2e No of Blocks Downloaded : 0x2f No of Blocks Downloaded : 0x30 No of Blocks Downloaded : 0x31 No of Blocks Downloaded : 0x32 No of Blocks Downloaded : 0x33 No of Blocks Downloaded : 0x34 No of Blocks Downloaded : 0x35 No of Blocks Downloaded : 0x36 No of Blocks Downloaded : 0x37 No of Blocks Downloaded : 0x38 No of Blocks Downloaded : 0x39 No of Blocks Downloaded : 0x3a No of Blocks Downloaded : 0x3b No of Blocks Downloaded : 0x3c No of Blocks Downloaded : 0x3d No of Blocks Downloaded : 0x3e No of Blocks Downloaded : 0x3f No of Blocks Downloaded : 0x40 No of Blocks Downloaded : 0x41 No of Blocks Downloaded : 0x42 No of Blocks Downloaded : 0x43 No of Blocks Downloaded : 0x44 No of Blocks Downloaded : 0x45 No of Blocks Downloaded : 0x46 No of Blocks Downloaded : 0x47 No of Blocks Downloaded : 0x48 No of Blocks Downloaded : 0x49 No of Blocks Downloaded : 0x4a No of Blocks Downloaded : 0x4b No of Blocks Downloaded : 0x4c No of Blocks Downloaded : 0x4d No of Blocks Downloaded : 0x4e No of Blocks Downloaded : 0x4f No of Blocks Downloaded : 0x50 No of Blocks Downloaded : 0x51 No of Blocks Downloaded : 0x52 No of Blocks Downloaded : 0x53 No of Blocks Downloaded : 0x54 No of Blocks Downloaded : 0x55 No of Blocks Downloaded : 0x56 No of Blocks Downloaded : 0x57 No of Blocks Downloaded : 0x58 No of Blocks Downloaded : 0x59 No of Blocks Downloaded : 0x5a No of Blocks Downloaded : 0x5b No of Blocks Downloaded : 0x5c No of Blocks Downloaded : 0x5d No of Blocks Downloaded : 0x5e No of Blocks Downloaded : 0x5f No of Blocks Downloaded : 0x60 No of Blocks Downloaded : 0x61 No of Blocks Downloaded : 0x62 No of Blocks Downloaded : 0x63 No of Blocks Downloaded : 0x64 No of Blocks Downloaded : 0x65 No of Blocks Downloaded : 0x66 No of Blocks Downloaded : 0x67 No of Blocks Downloaded : 0x68 No of Blocks Downloaded : 0x69 No of Blocks Downloaded : 0x6a No of Blocks Downloaded : 0x6b No of Blocks Downloaded : 0x6c Load Successful ; Code loaded at 0x0x101000 (2752 bytes/sec)
-
-FLASH % gdb
-GNU gdb 5.3
-Copyright 2002 Free Software Foundation, Inc.
-GDB is free software, covered by the GNU General Public License, and you are
-welcome to change it and/or distribute copies of it under certain conditions.
-Type "show copying" to see the conditions.
-There is absolutely no warranty for GDB.  Type "show warranty" for details.
-This GDB was configured as "--host=i686-linux-gnu --target=i386-unknown-gnu"...
-0x0010258d in breakpoint ()
-Breakpoint 1 at 0x1011b2: file sample.c, line 12.
-main () at sample.c:12
-12	  i=111;
-GDB386> b DisplayMsg
-Breakpoint 2 at 0x101177: file sample.c, line 5.
-GDB386> c
-Continuing.
-
-Breakpoint 2, DisplayMsg (i=0x6f) at sample.c:5
-5	   printf("%l Hello World %l \n", i, i*28);
-GDB386> p i
-$1 = 0x6f
-GDB386> set var i=111
-GDB386> pr  i
-$2 = 0x6f
-GDB386> where
-#0  DisplayMsg (i=0x6f) at sample.c:5
-#1  0x001011d1 in main () at sample.c:15
-#2  0x0010113d in _start (memSize=0x2000000, parms=0x51136 "-g", 
-    loadedfiles=0x100000)
-#3  0x00040ec1 in ?? ()
-#4  0x00040320 in ?? ()
-GDB386> b 16
-Breakpoint 3 at 0x1011d4: file sample.c, line 16.
-GDB386> c
-Continuing.
-111 Hello World 3108 
-
-Breakpoint 3, main () at sample.c:16
-16	    i++;
-GDB386> delete 3
-GDB386> i break sample.c if i == 113
-Can't find member of namespace, class, struct, or union named "sample.c"
-Hint: try 'sample.c if i == 113<TAB> or 'sample.c if i == 113<ESC-?>
-(Note leading single quote.)
-GDB386> break sample.c if i == 113[1@:[1@1[1@6
-Breakpoint 4 at 0x1011d4: file sample.c, line 16.
-GDB386> ifn  nfo b
-Num Type           Disp Enb Address    What
-2   breakpoint     keep y   0x00101177 in DisplayMsg at sample.c:5
-	breakpoint already hit 1 time
-4   breakpoint     keep y   0x001011d4 in main at sample.c:16
-	stop only if i == 0x71
-GDB386> c
-Continuing.
-
-Breakpoint 2, DisplayMsg (i=0x70) at sample.c:5
-5	   printf("%l Hello World %l \n", i, i*28);
-GDB386> where
-#0  DisplayMsg (i=0x70) at sample.c:5
-#1  0x001011d1 in main () at sample.c:15
-#2  0x0010113d in _start (memSize=0x2000000, parms=0x51136 "-g", 
-    loadedfiles=0x100000)
-#3  0x00040ec1 in ?? ()
-#4  0x00040320 in ?? ()
-GDB386> infor  reg
-eax            0x70	0x70
-ecx            0xb8000	0xb8000
-edx            0x10dc4	0x10dc4
-ebx            0x100000	0x100000
-esp            0x10e74	0x10e74
-ebp            0x10e74	0x10e74
-esi            0x2000000	0x2000000
-edi            0x51136	0x51136
-eip            0x101177	0x101177
-eflags         0x93	0x93
-cs             0x8	0x8
-ss             0x10	0x10
-ds             0x10	0x10
-es             0x10	0x10
-fs             0x10	0x10
-gs             0x10	0x10
-fctrl          0x0	0x0
-fstat          0x0	0x0
-ftag           0x0	0x0
-fiseg          0x0	0x0
-fioff          0x0	0x0
-foseg          0x0	0x0
-fooff          0x0	0x0
-fop            0x0	0x0
-GDB386> list 15
-10	  
-11	  long i,j;
-12	  i=111;
-13	
-14	  for(j=0; j<5; j++) {
-15	    DisplayMsg(i);
-16	    i++;
-17	  }
-18	  return 0;
-19	}
-GDB386> next
-112 Hello World 3136 
-6	   cons_printf("--> Hello World <-- CPE/CSC\n");
-GDB386> next
-7	}
-GDB386> next
-main () at sample.c:16
-16	    i++;
-GDB386> ne  p i
-$3 = 0x70
-GDB386> next
-14	  for(j=0; j<5; j++) {
-GDB386> p i
-$4 = 0x71
-GDB386> info reg
-eax            0x1c	0x1c
-ecx            0xb8000	0xb8000
-edx            0x10dc4	0x10dc4
-ebx            0x100000	0x100000
-esp            0x10e80	0x10e80
-ebp            0x10e88	0x10e88
-esi            0x2000000	0x2000000
-edi            0x51136	0x51136
-eip            0x1011d7	0x1011d7
-eflags         0x106	0x106
-cs             0x8	0x8
-ss             0x10	0x10
-ds             0x10	0x10
-es             0x10	0x10
-fs             0x10	0x10
-gs             0x10	0x10
-fctrl          0x0	0x0
-fstat          0x0	0x0
-ftag           0x0	0x0
-fiseg          0x0	0x0
-fioff          0x0	0x0
-foseg          0x0	0x0
-fooff          0x0	0x0
-fop            0x0	0x0
-GDB386> b 15
-Breakpoint 5 at 0x1011c8: file sample.c, line 15.
-GDB386> c
-Continuing.
-
-Breakpoint 5, main () at sample.c:15
-15	    DisplayMsg(i);
-GDB386> step
-
-Breakpoint 2, DisplayMsg (i=0x71) at sample.c:5
-5	   printf("%l Hello World %l \n", i, i*28);
-GDB386> dele    clear
-Deleted breakpoint 2 
-GDB386> infor  b
-Num Type           Disp Enb Address    What
-4   breakpoint     keep y   0x001011d4 in main at sample.c:16
-	stop only if i == 0x71
-5   breakpoint     keep y   0x001011c8 in main at sample.c:15
-	breakpoint already hit 1 time
-GDB386> delete 4
-GDB386> delete 5
-GDB386> info b
-No breakpoints or watchpoints.
-GDB386> c
-Continuing.
-113 Hello World 3164 
-114 Hello World 3192 
-115 Hello World 3220 
-
-Program exited normally.
-GDB386> q
-I m in gdbMyOS.dli debug file
-FLASH % q
-
-[4mspedeBox[24m:[1m~/prep3[0m> exit
-exit
-
-Script done on Fri 07 Sep 2018 12:07:29 PM PDT
